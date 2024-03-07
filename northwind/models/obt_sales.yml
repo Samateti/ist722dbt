@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: obt_sales
+    description: The sales fact table combined with its outrigger dimensions into one big table. Transaction fact table. One row per line item ordered. Includes product data
+
+

@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: Sales fact table. Records sales transactions.
+    columns:
+      - name: OrderId
+        description: Unique identifier for each sale.
+        tests:
+          - unique
+          - not_null
+      - name: productkey
+        description: Foreign key referencing dim_product.
+      - name: customerkey
+        description: Foreign key referencing dim_customer.
+      - name: employeekey
+        description: Foreign key referencing dim_employee.
+      - name: orderdatekey
+        description: Foreign key referencing dim_date.
+      - name: quantity
+        description: The quantity of products sold.
+        tests:
+          - not_null
+      - name: extendedpriceamount
+        description: additive fact for quantity * product price
+        tests:
+          - not_null
+      - name: discountamount
+        description: additive fact for extended price * discount
+        tests:
+          - not null
+      - name: soldamount
+        description: additive fact for extended price - discount amount
+        tests:
+          - not null
